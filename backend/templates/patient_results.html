@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #e8f7f1; display: flex; justify-content: center; padding: 40px; }
+        .card { background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 600px; width: 100%; }
+        
+        /* Dynamic colors based on risk */
+        .risk-score { font-size: 4em; font-weight: bold; margin: 20px 0; }
+        .safe { color: #28a745; }
+        .warning { color: #ffc107; }
+        .danger { color: #dc3545; }
+
+        h1 { margin-top: 0; color: #333; }
+        .advice-box { text-align: left; background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-top: 30px; display: none; }
+        .advice-box.show { display: block; }
+        .advice-box.high-risk { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+        
+        a { display: inline-block; margin-top: 20px; text-decoration: none; color: #007bff; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Result for {{ results.name }}</h1>
+    <p>Estimated Heart Disease Risk:</p>
+    
+    <div class="risk-score 
+        {% if results.risk > 20 %} danger 
+        {% elif results.risk > 10 %} warning 
+        {% else %} safe {% endif %}">
+        {{ results.risk }}%
+    </div>
+
+    {% if results.risk > 20 %}
+        <div class="advice-box high-risk show">
+            <h3>⚠️ High Risk Alert</h3>
+            <p>The patient shows a high probability of heart disease. Please follow these immediate steps:</p>
+            <ul>
+                <li><strong>Consult Specialist:</strong> Refer to a cardiologist immediately.</li>
+                <li><strong>Monitor Vitals:</strong> Check Blood Pressure and ECG.</li>
+                <li><strong>Lifestyle:</strong> Stop smoking immediately and switch to a low-sodium diet.</li>
+            </ul>
+        </div>
+    {% elif results.risk > 10 %}
+         <div class="advice-box show">
+            <h3>⚠️ Moderate Risk</h3>
+            <p>The risk is elevated. Recommend increased exercise, diet control, and a follow-up checkup in 3 months.</p>
+        </div>
+    {% else %}
+        <div style="color: green; margin-top: 20px;">
+            <p><strong>Result: Safe.</strong> Encourage the patient to maintain their current healthy lifestyle.</p>
+        </div>
+    {% endif %}
+
+    <a href="/">← Check Another Patient</a>
+</div>
+
+</body>
+</html>

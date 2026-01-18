@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Risk Check</title>
+    <style>
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #e8f7f1;   /* soft mint background */
+    display: flex; 
+    justify-content: center;
+    padding: 20px; 
+}
+
+.container { 
+    background-color: #ffffff;  /* clean white card */
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    width: 100%; 
+    max-width: 500px; 
+}
+
+h2 { 
+    text-align: center; 
+    color: #2f6f5f;   /* dark green */
+    margin-bottom: 20px; 
+}
+
+.form-group { 
+    margin-bottom: 15px; 
+}
+
+label {
+    display: block;
+    margin-bottom: 5px; 
+    color: #3b7a6a;   /* medium green */
+    font-weight: bold; 
+}
+
+input[type="text"], 
+input[type="number"], 
+select { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #b8dfd3;
+    border-radius: 5px; 
+    box-sizing: border-box;
+    background-color: #f7fffc;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #4fbfa5;
+    box-shadow: 0 0 5px rgba(79, 191, 165, 0.5);
+}
+
+button { 
+    width: 100%;
+    padding: 12px;
+    background-color: #4fbfa5;  /* main button green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px; 
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover { 
+    background-color: #2f9e87;  /* darker green on hover */
+}
+
+.row { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.col { 
+    flex: 1; 
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Heart Risk Predictor</h2>
+    <form action="/getresults" method="POST">
+        
+        <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" name="name" required placeholder="Enter name">
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>Gender</label>
+                <select name="gender">
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label>Age</label>
+                <input type="number" name="age" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>Total Cholesterol (TC)</label>
+                <input type="number" step="any" name="tc" required>
+            </div>
+            <div class="col form-group">
+                <label>HDL Cholesterol</label>
+                <input type="number" step="any" name="hdl" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>On BP Medication?</label>
+                <select name="bpmed">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label>Smoking History</label>
+                <select name="smoke">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Diabetes</label>
+            <select name="diab">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+
+        <button type="submit">Calculate Risk</button>
+    </form>
+</div>
+
+</body>
+</html>
