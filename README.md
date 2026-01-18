@@ -2,6 +2,12 @@
 
 A Machine Learning web application that predicts the 10-year risk of coronary heart disease based on patient health vitals. Built with **Python (Flask)** and **Scikit-Learn**.
 
+## 📌 How it looks like
+
+<img width="772" height="794" alt="Screenshot 2026-01-18 204235" src="https://github.com/user-attachments/assets/87695c8e-4012-4070-a4aa-a04417d7d215" />
+<img width="900" height="650" alt="Screenshot 2026-01-18 204250" src="https://github.com/user-attachments/assets/61eed847-8faf-4696-9fc1-9a80911c7792" />
+
+
 ## 📌 Overview
 This project is designed to assist early detection of heart disease risks. Users can input medical details such as Cholesterol levels, Age, and Smoking history to get an estimated risk percentage. The application also provides immediate, rule-based medical advice based on the calculated risk level.
 
