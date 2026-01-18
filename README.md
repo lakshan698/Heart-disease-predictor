@@ -1,0 +1,18 @@
+# ❤️ Heart Disease Risk Predictor
+
+A Machine Learning web application that predicts the 10-year risk of coronary heart disease based on patient health vitals. Built with **Python (Flask)** and **Scikit-Learn**.
+
+## 📌 Overview
+This project is designed to assist early detection of heart disease risks. Users can input medical details such as Cholesterol levels, Age, and Smoking history to get an estimated risk percentage. The application also provides immediate, rule-based medical advice based on the calculated risk level.
+
+## 🚀 Features
+* **Risk Prediction:** Uses a Regression Model to calculate a precise risk probability (0-100%).
+* **Dynamic Medical Advice:** Automatically suggests actions (e.g., "Consult Cardiologist", "Diet Control") based on risk severity (Low, Moderate, High).
+* **Data Validation:** Ensures risk percentages are realistic (handles negative values logically).
+* **Clean UI:** Simple and responsive user interface built with HTML/CSS.
+
+## 🛠️ Tech Stack
+* **Backend:** Python, Flask
+* **Machine Learning:** Scikit-Learn, Joblib, NumPy
+* **Frontend:** HTML5, CSS3 (Custom Styling)
+* **Model Type:** Regression Analysis
